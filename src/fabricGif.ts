@@ -30,7 +30,9 @@ export const fabricGif = async (gif, maxWidth, maxHeight, maxDuration) => {
       let status;
 
       img.width = frameWidth;
+      //@ts-ignore
       img.height = sprite.naturalHeight;
+      //@ts-ignore
       img.mode = "image";
       img.top = 200;
       img.left = 200;
@@ -56,20 +58,24 @@ export const fabricGif = async (gif, maxWidth, maxHeight, maxDuration) => {
           sprite.height
         );
       };
+      //@ts-ignore
       img.play = function () {
         status = PLAY;
         this.dirty = true;
       };
+      //@ts-ignore
       img.pause = function () {
         status = PAUSE;
         this.dirty = false;
       };
+      //@ts-ignore
       img.stop = function () {
         status = STOP;
         this.dirty = false;
       };
+      //@ts-ignore
       img.getStatus = () => ["Playing", "Paused", "Stopped"][status];
-
+      //@ts-ignore
       img.play();
       resolve(img);
     });

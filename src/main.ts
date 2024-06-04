@@ -9,8 +9,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   canvas = new fabric.Canvas("canvas");
 
   if (canvas) {
+    //@ts-ignore
     const gif = await fabricGif("/birthday.gif", canvas.width, canvas.height);
+    //@ts-ignore
     gif.set({ top: 0, left: 0, right: 0, bottom: 0, selectable: false });
+    //@ts-ignore
     canvas.add(gif);
 
     fabric.util.requestAnimFrame(function render() {
@@ -126,8 +129,11 @@ document.getElementById("colorInput")!.oninput = updateFontColor;
 document.getElementById("exportButton")!.onclick = exportCanvasToImage;
 
 const addGifToCanvas = async (gifUrl: string) => {
+  //@ts-ignore
   const gif = await fabricGif(gifUrl, 200, 200);
+  //@ts-ignore
   gif.set({ top: 0, left: 0, right: 0, bottom: 0 });
+  //@ts-ignore
   canvas.add(gif);
 
   fabric.util.requestAnimFrame(function render() {
